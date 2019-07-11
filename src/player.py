@@ -16,12 +16,17 @@ class Player:
             print('\nThere is no room that way!\n')
 
     def getitem(self, item):
-        self.playeritems.append(item)
-        print(f'\n\tYou got the {item}!\n')
+        if item in self.currentroom.roomitems:
+            self.playeritems.append(item)
+            self.currentroom.roomitems.remove(item)
+            print(f'\n\tYou got the {item}!\n')
+        else:
+            print(f'\n\t{self.currentroom.name} does\'t have the {item}\n')
 
     def dropitem(self, item):
         if item in self.playeritems:
             self.playeritems.remove(item)
+            self.currentroom.roomitems.append(item)
             print(f'\n\tYou dropped the {item}!\n')
         else:
             print(f'\n\tYou don\'t have the {item} to drop!\n')
