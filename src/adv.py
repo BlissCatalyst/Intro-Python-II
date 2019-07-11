@@ -52,7 +52,9 @@ player1 = Player(room['outside'])
 #
 # If the user enters "q", quit the game.
 command = input('Play (p) or Quit (q)?: ')
+print(f'\n~ {player1.currentroom.name} ~')
+print(f'\t{player1.currentroom.description}\n')
 while command != 'q':
-    print(player1.currentroom.name)
-    print(player1.currentroom.description)
     command = input('What is your next command?: ')
+    if command == 'n' or command == 'e' or command == 's' or command == 'w':
+        player1.move(command)

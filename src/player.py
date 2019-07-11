@@ -3,5 +3,13 @@
 
 
 class Player:
-    def __init__(self, currentroom):
-        self.currentroom = currentroom
+    def __init__(self, startingroom):
+        self.currentroom = startingroom
+
+    def move(self, direction):
+        if getattr(self.currentroom, f'{direction}_to') is not None:
+            self.currentroom = getattr(self.currentroom, f'{direction}_to')
+            print(
+                f'\n~ {self.currentroom.name} ~\n\t{self.currentroom.description}\n')
+        else:
+            print('There is no room that way!')
