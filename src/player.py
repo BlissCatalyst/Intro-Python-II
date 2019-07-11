@@ -12,4 +12,4 @@ class Player:
             print(
                 f'\n~ {self.currentroom.name} ~\n\t{self.currentroom.description}\n')
         else:
-            print('There is no room that way!')
+            print('\nThere is no room that way!\n')
