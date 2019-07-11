@@ -70,3 +70,5 @@ while command != 'q':
         player1.dropitem(' '.join(cmdsplit[1:]))
     elif command == 'inventory':
         player1.checkinv()
+    elif command == 'search room':
+        player1.searchroom()

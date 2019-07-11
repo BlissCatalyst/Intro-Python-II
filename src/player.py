@@ -37,3 +37,10 @@ class Player:
             print(f'\n\t{inv}\n')
         else:
             print('\n\tYou have nothing in your inventory!\n')
+
+    def searchroom(self):
+        if self.currentroom.roomitems:
+            print(
+                f'\n\tItem(s) in {self.currentroom.name}: {", ".join(self.currentroom.roomitems)}\n')
+        else:
+            print(f'\n\tThere is nothing useful in this room\n')
