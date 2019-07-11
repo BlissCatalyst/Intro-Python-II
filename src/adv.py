@@ -64,6 +64,6 @@ while command != 'q':
         player1.getitem(' '.join(cmdsplit[1:]))
     elif 'drop' in command:
         cmdsplit = command.split()
-        player1.dropitem(cmdsplit[1:])
+        player1.dropitem(' '.join(cmdsplit[1:]))
     elif command == 'inventory':
         player1.checkinv()

@@ -17,10 +17,11 @@ class Player:
 
     def getitem(self, item):
         self.playeritems.append(item)
-        print(f'You got the {item}!')
+        print(f'\n\tYou got the {item}!\n')
 
     def dropitem(self, item):
         self.playeritems.remove(item)
+        print(f'\n\tYou dropped the {item}!\n')
 
     def checkinv(self):
         inv = ', '.join(self.playeritems)
