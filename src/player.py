@@ -20,8 +20,11 @@ class Player:
         print(f'\n\tYou got the {item}!\n')
 
     def dropitem(self, item):
-        self.playeritems.remove(item)
-        print(f'\n\tYou dropped the {item}!\n')
+        if item in self.playeritems:
+            self.playeritems.remove(item)
+            print(f'\n\tYou dropped the {item}!\n')
+        else:
+            print(f'\n\tYou don\'t have the {item} to drop!\n')
 
     def checkinv(self):
         inv = ', '.join(self.playeritems)
