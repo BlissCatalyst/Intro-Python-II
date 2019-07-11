@@ -5,6 +5,7 @@
 class Player:
     def __init__(self, startingroom):
         self.currentroom = startingroom
+        self.playeritems = []
 
     def move(self, direction):
         if getattr(self.currentroom, f'{direction}_to') is not None:
@@ -13,3 +14,17 @@ class Player:
                 f'\n~ {self.currentroom.name} ~\n\t{self.currentroom.description}\n')
         else:
             print('\nThere is no room that way!\n')
+
+    def getitem(self, item):
+        self.playeritems.append(item)
+        print(f'You got the {item}!')
+
+    def dropitem(self, item):
+        self.playeritems.remove(item)
+
+    def checkinv(self):
+        inv = ', '.join(self.playeritems)
+        if inv:
+            print(f'\n\t{inv}\n')
+        else:
+            print('\n\tYou have nothing in your inventory!\n')

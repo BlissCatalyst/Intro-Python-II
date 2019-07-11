@@ -59,3 +59,11 @@ while command != 'q':
     command = input('What is your next command?: ')
     if command == 'n' or command == 'e' or command == 's' or command == 'w':
         player1.move(command)
+    elif 'get' in command:
+        cmdsplit = command.split()
+        player1.getitem(' '.join(cmdsplit[1:]))
+    elif 'drop' in command:
+        cmdsplit = command.split()
+        player1.dropitem(cmdsplit[1:])
+    elif command == 'inventory':
+        player1.checkinv()
