@@ -1,4 +1,6 @@
 from room import Room
+from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -38,6 +40,10 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+player1 = Player(room['outside'])
+
+# Give rooms default items
+room['outside'].roomitems.append('sword')
 
 # Write a loop that:
 #
@@ -49,3 +55,20 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+command = input('Play (p) or Quit (q)?: ')
+print(f'\n~ {player1.currentroom.name} ~')
+print(f'\t{player1.currentroom.description}\n')
+while command != 'q':
+    command = input('What is your next command?: ')
+    if command == 'n' or command == 'e' or command == 's' or command == 'w':
+        player1.move(command)
+    elif 'get' in command:
+        cmdsplit = command.split()
+        player1.getitem(' '.join(cmdsplit[1:]))
+    elif 'drop' in command:
+        cmdsplit = command.split()
+        player1.dropitem(' '.join(cmdsplit[1:]))
+    elif command == 'inventory':
+        player1.checkinv()
+    elif command == 'search room':
+        player1.searchroom()
